@@ -21,6 +21,7 @@ public interface BookService {
     List<BookResponse> searchBooks(
             String title,
             String author,
+            String publicationDate,
             String category,
             String isbn,
             Integer rating,
