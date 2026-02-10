@@ -28,3 +28,15 @@ eureka:
   instance:
     prefer-ip-address: true
     hostname: ms-books-catalogue
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true

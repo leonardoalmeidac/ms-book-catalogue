@@ -99,18 +99,19 @@ public class BookServiceImpl implements BookService {
     public List<BookResponse> searchBooks(
             String title,
             String author,
+            String publicationDate,
             String category,
             String isbn,
             Integer rating,
-            Boolean visible
-    ) {
+            Boolean visible) {
         Specification<Book> specification = Specification
                 .where(hasTitle(title))
                 .and(hasAuthor(author))
+                .and(hasPublicationDate(publicationDate))
                 .and(hasCategory(category))
                 .and(hasIsbn(isbn))
                 .and(hasRating(rating))
-                .and(isVisible(true));
+                .and(isVisible(visible));
 
         return bookRepository.findAll(specification)
                 .stream()

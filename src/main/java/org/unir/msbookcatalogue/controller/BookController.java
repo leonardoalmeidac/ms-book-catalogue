@@ -59,14 +59,13 @@ public class BookController {
     public ResponseEntity<List<BookResponse>> searchBooks(
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String author,
+            @RequestParam(required = false) String publicationDate,
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String isbn,
             @RequestParam(required = false) Integer rating,
-            @RequestParam(required = false) Boolean visible
-    ) {
+            @RequestParam(required = false) Boolean visible) {
         List<BookResponse> books = bookService.searchBooks(
-                title, author, category, isbn, rating, visible
-        );
+                title, author, publicationDate, category, isbn, rating, visible);
         return ResponseEntity.ok(books);
     }
 }
