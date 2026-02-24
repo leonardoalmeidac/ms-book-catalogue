@@ -63,7 +63,7 @@ public class BookController {
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String isbn,
             @RequestParam(required = false) Integer rating,
-            @RequestParam(required = false) Boolean visible) {
+            @RequestParam(required = false, defaultValue = "true") Boolean visible) {
         List<BookResponse> books = bookService.searchBooks(
                 title, author, publicationDate, category, isbn, rating, visible);
         return ResponseEntity.ok(books);
